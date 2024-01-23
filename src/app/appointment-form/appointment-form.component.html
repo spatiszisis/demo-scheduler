@@ -1,0 +1,50 @@
+<form [formGroup]='appointmentForm'>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Calendar</label>
+        <div class="input-group">
+            <!-- <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker
+                [footerTemplate]="footerTemplate" #d="ngbDatepicker" formControlName='date' /> -->
+                <input
+                    class="form-control"
+                    type="text"
+                    mwlFlatpickr
+                    formControlName='date'
+                    [altInput]="true"
+                    [convertModelValue]="true"
+                    [enableTime]="true"
+                    dateFormat="Y-m-dTH:i"
+                    altFormat="F j, Y H:i"
+                    placeholder="Not set"
+                />
+            <!-- <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><i class="fas fa-fw fa-calendar"></i></button> -->
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="hours" class="form-label">Hour Range</label>
+        <select class="form-select" aria-label="Default select example" formControlName='hourRange'>
+            <option selected>Select hour range</option>
+            <option value="1">10:00-12:00</option>
+            <option value="2">12:00-17:00</option>
+            <option value="3">17:00-21:00</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" aria-describedby="namehelp" formControlName='fullName'>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName='email'>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="Description" rows="3" formControlName='description'></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onCreate()">Submit</button>
+</form>
+
+<!-- <ng-template #footerTemplate>
+    <hr class="my-0" />
+    <button class="btn btn-primary btn-sm m-2 float-start" (click)="model = today; d.close()">Today</button>
+    <button class="btn btn-secondary btn-sm m-2 float-end" (click)="d.close()">Close</button>
+</ng-template> -->
